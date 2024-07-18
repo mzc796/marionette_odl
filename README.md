@@ -74,6 +74,24 @@ If ```tcp *:6653 (LISTEN)``` and ```tcp *:8181 (LISTEN)``` do not show, shut dow
 
 ## Prepare Mininet
 We build another VM to run Mininet, Memory:4GB, Hard disk:20GB
-### Connect Mininet with OpenDaylight
+
+## Install mininet
+```
+sudo apt-get update
+sudo apt-get install mininet
+```
+## Run Mininet with Customized Topology and Connect with Remote Controller with Ip Address $IP
+``` 
+cd Mininet_FatTree
+sudo ./fattree_mn_run.sh $IP
+```
+## Check Flow Entries
+```
+sudo ./dump_flows.sh $sw_id
+```
+For Example,
+```
+sudo ./dump_flows.sh s1
+```
 
 
