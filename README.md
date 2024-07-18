@@ -70,3 +70,4 @@ opendaylight-user@root>feature:install odl-openflowplugin-app-topology-lldp-disc
 ```
 sudo lsof -i -P -n | grep LISTEN
 ```
+If ```tcp *:6653 (LISTEN)``` and ```tcp *:8181 (LISTEN)``` do not show, shut down OpenDaylight with ```Control+D``` and restart ```sudo ./karaf```
