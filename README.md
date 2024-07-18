@@ -2,7 +2,7 @@
 We demonstrate Marionette attacking ODL Calcium on a fat tree topology. It starts with collecting network information and learning a deceptive topology, making more flows going to an eavesdropping node. Then Marionette composes and sends poisonous flow entries to make the deceptive topology discovered by the legitimated controller.
 
 # VM Specification
-Memory 32768MB
+Memory 32GB
 # Systerm Preparation
 
 ## Install Python3.9
