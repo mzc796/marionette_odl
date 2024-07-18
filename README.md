@@ -58,3 +58,11 @@ Add the following to the setenv file
 ```
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ```
+### Run OpenDaylight
+```
+sudo ./karaf
+```
+### Install OpenFlow Plugins
+```
+opendaylight-user@root>feature:install odl-openflowplugin-app-topology-lldp-discovery odl-openflowplugin-app-table-miss-enforcer odl-openflowplugin-flow-services odl-openflowplugin-flow-services-rest odl-openflowplugin-app-topology-manager odl-openflowplugin-app-lldp-speaker
+```
