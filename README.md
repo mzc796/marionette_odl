@@ -51,7 +51,7 @@ unzip opendaylight-15.3.0.zip
 ```
 ### Configure ODL-15.3.0 Environment
 ```
-cd opendaylight-15.3.0\bin
+cd karaf-0.20.1\bin
 vim setenv
 ```
 Add the following to the setenv file
