@@ -20,9 +20,7 @@ sudo apt-get install python3.9 vim wget
 sudo apt install python3-pip python3.9-distutils
 python3.9 -m pip install gym networkx matplotlib
 
-python3.9 -m pip install atari-py
 python3.9 -m pip install 'stable-baselines3==1.7.0'
-python3.9 -m pip install Cmake
 ```
 ## Install Java
 ```
