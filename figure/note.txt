@@ -1,0 +1,19 @@
+This folder contains figures of the topology. 
+
+NOTE: 
+
+(1) Because the latest version (e.g. after the version of 15.3.0) of OpenDaylight remove the user interface project DLUX and we want to show the changes of the topology easily, we use RESTful API to GET topology in real-tiem and draw the topology with nodes having fixed positions by scripts.
+
+(2) The node indices start from 0 in RL_topo.png but start from 1 in topo_deceptive.png. 
+
+topo_original.png: The topology discovered by the ODL controller before being poisoned, which is the real topology.
+
+RL_topo.png: The Reinforcement Learning produced deceptive topology.
+
+topo_deceptive.png: The topology discovered by the ODL controller after being poisoned by Marionette, which is the deceptive topology.
+
+The RL_topo.png should be the same as topo_deceptive.png, which proves the success of precise link manipulation.
+
+
+
+
