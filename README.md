@@ -32,7 +32,7 @@ sudo vim /etc/profile
 ```
 Add the following to the end of /etc/profile
 ```
-JAVA_HOME=/usr/lib/jvm/java-17-openjdk-arm64
+JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
 export JAVA_HOME
 export JRE_HOME
@@ -56,5 +56,5 @@ vim setenv
 ```
 Add the following to the setenv file
 ```
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-arm64
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ```
