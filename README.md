@@ -18,8 +18,8 @@ sudo apt-get update
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get install python3.9 vim wget
 sudo apt install python3-pip python3.9-distutils
-python3.9 -m pip install gym networkx matplotlib
-
+python3.9 -m pip install --upgrade Pillow
+python3.9 -m pip install networkx matplotlib
 python3.9 -m pip install 'stable-baselines3==1.7.0'
 ```
 ## Install Java
@@ -32,21 +32,22 @@ sudo vim /etc/profile
 ```
 Add the following to the end of /etc/profile
 ```
-    JAVA_HOME=/usr/lib/jvm/java-17-openjdk-arm64
-    PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
-    export JAVA_HOME
-    export JRE_HOME
-    export PATH
+JAVA_HOME=/usr/lib/jvm/java-17-openjdk-arm64
+PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
+export JAVA_HOME
+export JRE_HOME
+export PATH
 ```
 ### Make JAVE_HOME valid and Test JAVA Version
-    source /etc/profile/
-    java -version
-    
+```
+source /etc/profile/
+java -version
+```
 ## Install OpenDaylight-15.3.0
 ### Download OpenDaylight-15.3.0
 ```
-    wget https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/opendaylight/15.3.0/opendaylight-15.3.0.zip
-    unzip opendaylight-15.3.0.zip
+wget https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/karaf/0.20.1/karaf-0.20.1.zip
+unzip opendaylight-15.3.0.zip
 ```
 ### Configure ODL-15.3.0 Environment
 ```
