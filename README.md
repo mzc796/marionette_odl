@@ -43,18 +43,18 @@ export PATH
 source /etc/profile/
 java -version
 ```
-## Install OpenDaylight-15.3.0
-### Download OpenDaylight-15.3.0
+## Install Latest OpenDaylight (Calcium, June 27, 2024)
+### Download OpenDaylight Calcium
 ```
 wget https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/karaf/0.20.1/karaf-0.20.1.zip
-unzip opendaylight-15.3.0.zip
+unzip karaf-0.20.1.zip
 ```
-### Configure ODL-15.3.0 Environment
+### Configure ODL-0.20.1 Environment
 ```
 cd karaf-0.20.1\bin
 vim setenv
 ```
 Add the following to the setenv file
 ```
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-arm64
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-arm64
 ```
