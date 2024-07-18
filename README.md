@@ -17,8 +17,7 @@ Hard disk: 50GB
 sudo apt-get update
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get install python3.9 vim wget
-sudo apt install python3-pip
-sudo apt install python3.9-distutils
+sudo apt install python3-pip python3.9-distutils
 python3.9 -m pip install gym networkx matplotlib
 
 python3.9 -m pip install --upgrade pip
