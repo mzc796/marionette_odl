@@ -6,7 +6,7 @@ System: ubuntu-22.04.4-desktop-amd64.iso
 
 CPU: 2 cores
 
-Memory: 16GB
+Memory: 32GB
 
 Hard disk: 50GB
 
@@ -71,3 +71,9 @@ opendaylight-user@root>feature:install odl-openflowplugin-app-topology-lldp-disc
 sudo lsof -i -P -n | grep LISTEN
 ```
 If ```tcp *:6653 (LISTEN)``` and ```tcp *:8181 (LISTEN)``` do not show, shut down OpenDaylight with ```Control+D``` and restart ```sudo ./karaf```
+
+## Prepare Mininet
+We build another VM to run Mininet, Memory:4GB, Hard disk:20GB
+### Connect Mininet with OpenDaylight
+
+
