@@ -66,3 +66,7 @@ sudo ./karaf
 ```
 opendaylight-user@root>feature:install odl-openflowplugin-app-topology-lldp-discovery odl-openflowplugin-app-table-miss-enforcer odl-openflowplugin-flow-services odl-openflowplugin-flow-services-rest odl-openflowplugin-app-topology-manager odl-openflowplugin-app-lldp-speaker
 ```
+### Check Listening Ports
+```
+sudo lsof -i -P -n | grep LISTEN
+```
