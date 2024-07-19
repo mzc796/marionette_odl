@@ -113,10 +113,10 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   ```
 ## Marionette Attack
 1. Open another terminal on the OpenDaylight VM
-2. Download marionette_odl.zip and extract it to $HOME.
+2. Download marionette_odl-master.zip and extract it to $HOME.
 3. Run Marionette
   ```
-  cd marionette_odl-0.20.1
+  cd marionette_odl-master/
   python3.9 main.py
   ```
 ### Result
