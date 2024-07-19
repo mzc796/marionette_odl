@@ -98,7 +98,7 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
 3. Run Mininet with Customized Topology and Connect to Remote Controller with $IP_ODL
   ``` 
   cd marionette_odl-master/mininet_fattree
-  sudo chmod 774 fattree_mn_run.sh
+  sudo chmod 774 fattree_mn_run.sh dump_flows.sh
   sudo ./fattree_mn_run.sh $IP_ODL
   ```
   NOTE: The $IP_ODL can be known with the command ```ifconfig``` on OpenDaylight VM.
