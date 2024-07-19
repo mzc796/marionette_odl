@@ -103,7 +103,7 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   ```
   NOTE: The $IP_ODL can be known with the command ```ifconfig``` on OpenDaylight VM.
   
-4. Utility for Checking Flow Entries 
+### Utility for Checking Flow Entries 
   ```
   sudo ./dump_flows.sh $sw_id
   ```
@@ -112,6 +112,9 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   sudo ./dump_flows.sh s1
   ```
 ## Marionette Attack
+To efficiently demonstrate Marionette with budgeted time (about ) and resources (2 core CPU, Memory: 32GB), we give Marionette an easy goal to run the reinforcement learning algorithm to compute an adequate deceptive topology.
+In `main.py`, we set the eavesdropping node as node 6 (openflow:7), the expected increased number of eavesdropping flows is 4, and the degree sequence must remain unchanged after altering the topology.
+
 1. Open another terminal on the OpenDaylight VM
 2. Download marionette_odl-master.zip and extract it to $HOME.
 3. Run Marionette
@@ -120,10 +123,6 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   python3.9 main.py
   ```
 ### Result
-   
- To efficiently demonstrate Marionette, we give the Marionette an easy goal to run a Reinforcement Learning algorithm to compute an adequate deceptive topology.
-
- We set the eavesdropping node as node 6 (openflow:7), the expected increased number of eavesdropping flows is 4, and the degree sequence must remain unchanged after altering the topology.
   
  After the program is finished, we go to the 'figure' folder. There will be three figures:
 
@@ -134,6 +133,14 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   - topo_deceptive.png: The topology discovered by the ODL controller after being poisoned by Marionette, which is the deceptive topology.
 
   The RL_topo.png should be the same as topo_deceptive.png, which proves the success of precise link manipulation.
+  
+### Utility to Reset the Environment
+
+```
+python3.9 clear_all.py 36
+```
+
+NOTE: `36` is the total number of switches in this fat tree topology
 
 ### NOTE: 
 
