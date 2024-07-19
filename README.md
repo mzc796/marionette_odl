@@ -113,7 +113,7 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   ```
 ## Marionette Attack
 To efficiently demonstrate Marionette with budgeted time (about ) and resources (2 core CPU, Memory: 32GB), we give Marionette an easy goal to run the reinforcement learning algorithm to compute an adequate deceptive topology.
-In `main.py`, we set the eavesdropping node as node 6 (openflow:7), the expected increased number of eavesdropping flows is 4, and the degree sequence must remain unchanged after altering the topology.
+In `main.py`, we set the eavesdropping node as node 6 (openflow:7), the expected increased number of eavesdropping flows is 4, the similarity lower bound is 80%, and the degree sequence must remain unchanged after altering the topology.
 
 1. Open another terminal on the OpenDaylight VM
 2. Download marionette_odl-master.zip and extract it to $HOME.
