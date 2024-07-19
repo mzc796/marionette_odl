@@ -95,11 +95,13 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   sudo apt-get install mininet
   ```
 2. Run Mininet with Customized Topology and Connect to Remote Controller with $IP_ODL
+
+  Download marionette_odl-master.zip and extract it to the HOME folder.
   ``` 
-  cd Mininet_FatTree
+  cd marionette_odl-master/Mininet_FatTree
   sudo ./fattree_mn_run.sh $IP_ODL
   ```
-  NOTE: The $IP_ODL can be known with command ```ifconfig``` on OpenDaylight VM.
+  NOTE: The $IP_ODL can be known with the command ```ifconfig``` on OpenDaylight VM.
 3. Check Flow Entries
   ```
   sudo ./dump_flows.sh $sw_id
