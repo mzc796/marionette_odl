@@ -27,7 +27,7 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
   ```
 3. Install and Configure Java
   >1. Install Java
-  >```
+  ```
   sudo apt-get install openjdk-17-jdk
   ```
   >2. Configure JAVA_HOME to /etc/profile
@@ -123,7 +123,7 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
 
   The RL_topo.png should be the same as topo_deceptive.png, which proves the success of precise link manipulation.
 
-NOTE: 
+### NOTE: 
 
 (1) Because the latest version (e.g. at least after the version of 15.3.0) of OpenDaylight removed the user interface project DLUX and we want to show the changes of the topology easily, we use RESTful API to GET topology in real-time and draw the topology with nodes having fixed positions by scripts.
 
