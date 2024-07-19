@@ -26,16 +26,16 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
   python3.9 -m pip install 'stable-baselines3==1.7.0'
   ```
 3. Install and Configure Java
-&nbsp 1. Install Java
+> (1) Install Java
   ```
   sudo apt-get install openjdk-17-jdk
   ```
-&nbsp 2. Configure JAVA_HOME to /etc/profile
+> (2) Configure JAVA_HOME to /etc/profile
 
   ```
   sudo vim /etc/profile
   ```
-&nbsp 3. Add the following to the end of /etc/profile
+> (3) Add the following to the end of /etc/profile
   ```
   JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
   PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
@@ -43,37 +43,37 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
   export JRE_HOME
   export PATH
   ```
-&nbsp 4. Make JAVE_HOME valid and Test JAVA Version
+> (4) Make JAVE_HOME valid and Test JAVA Version
   ```
   source /etc/profile/
   java -version
   ```
 4. Install Latest OpenDaylight (Calcium, June 27, 2024)
-&nbsp 1. Download OpenDaylight Calcium
+> (1) Download OpenDaylight Calcium
   ```
   wget https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/karaf/0.20.1/karaf-0.20.1.zip
   unzip karaf-0.20.1.zip
   ```
-&nbsp 2. Configure ODL-0.20.1 Environment
+> (2) Configure ODL-0.20.1 Environment
   ```
   cd karaf-0.20.1\bin
   vim setenv
   ```
-&nbsp 3. Add the following to the setenv file
+> (3) Add the following to the setenv file
   
   ```
   export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
   ```
 5. Run OpenDaylight and Install OpenFlow Plugins
-&nbsp 1. Run OpenDaylight
+> (1) Run OpenDaylight
   ```
   sudo ./karaf
   ```
-&nbsp 2. Install OpenFlow Plugins
+> (2) Install OpenFlow Plugins
   ```
   opendaylight-user@root>feature:install odl-openflowplugin-app-topology-lldp-discovery odl-openflowplugin-app-table-miss-enforcer odl-openflowplugin-flow-services odl-openflowplugin-flow-services-rest odl-openflowplugin-app-topology-manager odl-openflowplugin-app-lldp-speaker
   ```
-&nbsp 3. Check Listening Ports
+> (3) Check Listening Ports
   ```
   sudo lsof -i -P -n | grep LISTEN
   ```
@@ -110,11 +110,11 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
   ```
 3. Result
    
-&nbsp To efficiently demonstrate Marionette, we give the Marionette an easy goal to run a Reinforcement Learning algorithm to compute an adequate deceptive topology.
+> To efficiently demonstrate Marionette, we give the Marionette an easy goal to run a Reinforcement Learning algorithm to compute an adequate deceptive topology.
 
-&nbsp We set the eavesdropping node as node 6 (openflow:7), the expected increased number of eavesdropping flows is 4, and the degree sequence must remain unchanged after altering the topology.
+> We set the eavesdropping node as node 6 (openflow:7), the expected increased number of eavesdropping flows is 4, and the degree sequence must remain unchanged after altering the topology.
   
-&nbsp After the program is finished, we go to the 'figure' folder. There will be three figures:
+> After the program is finished, we go to the 'figure' folder. There will be three figures:
 
   - topo_original.png: The topology discovered by the ODL controller before being poisoned, which is the real topology.
 
@@ -126,6 +126,6 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
 
 ### NOTE: 
 
-(1) Because the latest version (e.g. at least after the version of 15.3.0) of OpenDaylight removed the user interface project DLUX and we want to show the changes of the topology easily, we use RESTful API to GET topology in real-time and draw the topology with nodes having fixed positions by scripts.
+1. Because the latest version (e.g. at least after the version of 15.3.0) of OpenDaylight removed the user interface project DLUX and we want to show the changes of the topology easily, we use RESTful API to GET topology in real-time and draw the topology with nodes having fixed positions by scripts.
 
-(2) The node indices start from 0 in RL_topo.png but start from 1 in topo_deceptive.png. 
+2. The node indices start from 0 in RL_topo.png but start from 1 in topo_deceptive.png. 
