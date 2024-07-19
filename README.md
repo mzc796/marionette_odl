@@ -53,16 +53,16 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   ```
   wget https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/karaf/0.20.1/karaf-0.20.1.zip
   ```
-  (2) Extract it to $HOME
+>  (2) Extract it to $HOME
   ```
   unzip karaf-0.20.1.zip
   ```
-> (2) Configure ODL-0.20.1 Environment
+> (3) Configure ODL-0.20.1 Environment
   ```
   cd karaf-0.20.1/bin
   vim setenv
   ```
-> (3) Add the following to the setenv file
+> (4) Add the following to the setenv file
   
   ```
   export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
