@@ -7,13 +7,15 @@ VMware Fusion
 ## Virtual Machine Summary
 Memory: 32GB
 
+Note: A high memory is required due to the Reinforcement Learning algorithm.
+
 Storage: 50GB
 
 CPU: 2 cores, AMD64 Architecture
 
 Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
 
-NOTE: After installation and reboot, please don't select `Install Now` when the window of `Software Updater` pops up. Otherwise, it may cause an error of 'not enough space' later.
+NOTE: After installation and reboot, please don't select `Install Now` when the `Software Updater` window pops up. Otherwise, it may cause an error of `not enough space` later.
 ## Build and Run OpenDaylight with Mininet
 1. Install Python3.9 and stable-baselines3
   ```
