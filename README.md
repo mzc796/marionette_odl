@@ -1,107 +1,115 @@
-# marionette_odl-0.20.1
-We demonstrate Marionette's attack on ODL Calcium with a fat tree topology. It starts with collecting network information and learning a deceptive topology that attracts more flows to an eavesdropping node. Then Marionette composes and sends poisonous flow entries to induce the legitimated controller to discover the computed deceptive topology independently.
+# Part 2: Marionette as an Application on OpenDaylight with Fat Tree Topology
+Marionette attacks OpenDaylight Calcium (karaf-0.20.1.zip) from a malicious application to attract more flows to an eavesdropping point on an enterprise fat tree topology. Step 1: The Marionette collects nodes and topology information to learn a deceptive topology based on an enterprise fat-tree topology to meet the attack goal. Step 2: The Marionette composes and sends corresponding poisonous flow entries to mislead the OpenDaylight controller to independently discover a deceptive topology as designed in Step 1.
 
-# VM Specification
-System: ubuntu-22.04.4-desktop-amd64.iso
 
-CPU: 2 cores
-
+## Virtual Machine Platform
+VMware Fusion
+## Virtual Machine Summary
 Memory: 32GB
 
-Hard disk: 50GB
+Storage: 50GB
 
-# Systerm Preparation
+CPU: 2 cores, AMD64 Architecture
 
-## Install Python3.9 and stable-baselines3
-```
-sudo apt-get update
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt-get install python3.9 vim wget net-tools
-sudo apt install python3-pip python3.9-distutils
-python3.9 -m pip install --upgrade Pillow
-python3.9 -m pip install networkx matplotlib
-python3.9 -m pip install 'stable-baselines3==1.7.0'
-```
-## Install Java
-```
-sudo apt-get install openjdk-17-jdk
-```
-### Configure JAVA_HOME and IP_ADDR to /etc/profile
-```
-sudo vim /etc/profile
-```
-Add the following to the end of /etc/profile
-```
-JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
-export JAVA_HOME
-export JRE_HOME
-export PATH
-```
-### Make JAVE_HOME valid and Test JAVA Version
-```
-source /etc/profile/
-java -version
-```
-## Install Latest OpenDaylight (Calcium, June 27, 2024)
-### Download OpenDaylight Calcium
-```
-wget https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/karaf/0.20.1/karaf-0.20.1.zip
-unzip karaf-0.20.1.zip
-```
-### Configure ODL-0.20.1 Environment
-```
-cd karaf-0.20.1\bin
-vim setenv
-```
-Add the following to the setenv file
-```
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-```
-### Run OpenDaylight
-```
-sudo ./karaf
-```
-### Install OpenFlow Plugins
-```
-opendaylight-user@root>feature:install odl-openflowplugin-app-topology-lldp-discovery odl-openflowplugin-app-table-miss-enforcer odl-openflowplugin-flow-services odl-openflowplugin-flow-services-rest odl-openflowplugin-app-topology-manager odl-openflowplugin-app-lldp-speaker
-```
-### Check Listening Ports
-```
-sudo lsof -i -P -n | grep LISTEN
-```
-If ```tcp *:6653 (LISTEN)``` and ```tcp *:8181 (LISTEN)``` do not show, shut down OpenDaylight with ```Control+D``` and restart ```sudo ./karaf```
+Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
 
-## Prepare Mininet
-We build another VM to run Mininet, Memory:4GB, Hard disk:20GB
+## Build and Run OpenDaylight with Mininet
+1. Download marionette_odl.zip
+2. Install Python3.9 and stable-baselines3
+  ```
+  sudo apt-get update
+  sudo add-apt-repository ppa:deadsnakes/ppa
+  sudo apt-get install python3.9 vim wget net-tools
+  sudo apt install python3-pip python3.9-distutils
+  python3.9 -m pip install --upgrade Pillow
+  python3.9 -m pip install networkx matplotlib
+  python3.9 -m pip install 'stable-baselines3==1.7.0'
+  ```
+3. Install Java
+   
+  ```
+  sudo apt-get install openjdk-17-jdk
+  ```
 
-### Install mininet
-```
-sudo apt-get update
-sudo apt-get install mininet
-```
-### Run Mininet with Customized Topology and Connect with Remote Controller with Ip Address $IP
-``` 
-cd Mininet_FatTree
-sudo ./fattree_mn_run.sh $IP
-```
-### Check Flow Entries
-```
-sudo ./dump_flows.sh $sw_id
-```
-For Example,
-```
-sudo ./dump_flows.sh s1
-```
+  Configure JAVA_HOME to /etc/profile
+
+  ```
+  sudo vim /etc/profile
+  ```
+
+  Add the following to the end of /etc/profile
+  ```
+  JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+  PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
+  export JAVA_HOME
+  export JRE_HOME
+  export PATH
+  ```
+   Make JAVE_HOME valid and Test JAVA Version
+  ```
+  source /etc/profile/
+  java -version
+  ```
+4. Install Latest OpenDaylight (Calcium, June 27, 2024)
+  Download OpenDaylight Calcium
+  ```
+  wget https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/karaf/0.20.1/karaf-0.20.1.zip
+  unzip karaf-0.20.1.zip
+  ```
+  Configure ODL-0.20.1 Environment
+  ```
+  cd karaf-0.20.1\bin
+  vim setenv
+  ```
+  Add the following to the setenv file
+  
+  ```
+  export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+  ```
+5. Run OpenDaylight
+  ```
+  sudo ./karaf
+  ```
+  Install OpenFlow Plugins
+  ```
+  opendaylight-user@root>feature:install odl-openflowplugin-app-topology-lldp-discovery odl-openflowplugin-app-table-miss-enforcer odl-openflowplugin-flow-services odl-openflowplugin-flow-services-rest odl-openflowplugin-app-topology-manager odl-openflowplugin-app-lldp-speaker
+  ```
+  Check Listening Ports
+  ```
+  sudo lsof -i -P -n | grep LISTEN
+  ```
+  If ```tcp *:6653 (LISTEN)``` and ```tcp *:8181 (LISTEN)``` do not show, shut down OpenDaylight with ```Control+D``` and restart ```sudo ./karaf```
+
+6. Prepare Mininet
+  We build another VM to run Mininet, Memory:4GB, Storage:20GB
+
+7. Install mininet
+  ```
+  sudo apt-get update
+  sudo apt-get install mininet
+  ```
+8. Run Mininet with Customized Topology and Connect with Remote Controller with Ip Address $IP
+  ``` 
+  cd Mininet_FatTree
+  sudo ./fattree_mn_run.sh $IP
+  ```
+9. Check Flow Entries
+  ```
+  sudo ./dump_flows.sh $sw_id
+  ```
+  For Example,
+  ```
+  sudo ./dump_flows.sh s1
+  ```
 ## Marionette Attack
-Open another terminal on OpenDaylight VM
+Open another terminal on the OpenDaylight VM
 Download marionette_odl-0.20.1.zip
-Unzip it in the home folder.
+Unzip it into the home folder.
 ```
 cd marionette_odl-0.20.1
 python3.9 main.py
 ```
-In order to efficiently demonstrate Marionette, we give the Marionette an easy goal to run a Reinforcement Learning algorithm to compute an adequate deceptive topology.
+To efficiently demonstrate Marionette, we give the Marionette an easy goal to run a Reinforcement Learning algorithm to compute an adequate deceptive topology.
 We set the eavesdropping node as node 6 (openflow:7), the expected increased number of eavesdropping flows is 4, and the degree sequence must remain unchanged after altering the topology.
 After the program is finished, we go to the 'figure' folder. There will be three figures.
 
