@@ -27,7 +27,7 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
   ```
 3. Install and Configure Java
   >1. Install Java
-  ```
+  >```
   sudo apt-get install openjdk-17-jdk
   ```
   >2. Configure JAVA_HOME to /etc/profile
