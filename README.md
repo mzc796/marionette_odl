@@ -81,7 +81,7 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
 
 ## Build and Run Mininet VM
    
-  We build another VM to run Mininet. The Mininet VM use the ODL VM setting but with Memory:4GB
+  We build another VM to run Mininet. The Mininet VM use the ODL VM setting but with Memory:4GB, Storage: 50GB
 
 1. Install mininet
   ```
