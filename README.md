@@ -1,5 +1,5 @@
 # marionette_odl-0.20.1
-We demonstrate Marionette attacking ODL Calcium on a fat tree topology. It starts with collecting network information and learning a deceptive topology, making more flows going to an eavesdropping node. Then Marionette composes and sends poisonous flow entries to make the deceptive topology discovered by the legitimated controller.
+We demonstrate Marionette's attack on ODL Calcium with a fat tree topology. It starts with collecting network information and learning a deceptive topology that attracts more flows to an eavesdropping node. Then Marionette composes and sends poisonous flow entries to induce the legitimated controller to discover the computed deceptive topology independently.
 
 # VM Specification
 System: ubuntu-22.04.4-desktop-amd64.iso
