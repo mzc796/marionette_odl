@@ -25,19 +25,19 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
   python3.9 -m pip install networkx matplotlib
   python3.9 -m pip install 'stable-baselines3==1.7.0'
   ```
-3. Install Java
-   
+3. Install and Configure Java
+   1. Install Java
   ```
   sudo apt-get install openjdk-17-jdk
   ```
 
-  Configure JAVA_HOME to /etc/profile
+  2. Configure JAVA_HOME to /etc/profile
 
   ```
   sudo vim /etc/profile
   ```
 
-  Add the following to the end of /etc/profile
+  3. Add the following to the end of /etc/profile
   ```
   JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
   PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
@@ -45,40 +45,41 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
   export JRE_HOME
   export PATH
   ```
-   Make JAVE_HOME valid and Test JAVA Version
+  4. Make JAVE_HOME valid and Test JAVA Version
   ```
   source /etc/profile/
   java -version
   ```
 4. Install Latest OpenDaylight (Calcium, June 27, 2024)
-  Download OpenDaylight Calcium
+  1. Download OpenDaylight Calcium
   ```
   wget https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/karaf/0.20.1/karaf-0.20.1.zip
   unzip karaf-0.20.1.zip
   ```
-  Configure ODL-0.20.1 Environment
+  2. Configure ODL-0.20.1 Environment
   ```
   cd karaf-0.20.1\bin
   vim setenv
   ```
-  Add the following to the setenv file
+  3. Add the following to the setenv file
   
   ```
   export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
   ```
-5. Run OpenDaylight
+5. Run OpenDaylight and Install OpenFlow Plugins
+   1. Run OpenDaylight
   ```
   sudo ./karaf
   ```
-  Install OpenFlow Plugins
+  2. Install OpenFlow Plugins
   ```
   opendaylight-user@root>feature:install odl-openflowplugin-app-topology-lldp-discovery odl-openflowplugin-app-table-miss-enforcer odl-openflowplugin-flow-services odl-openflowplugin-flow-services-rest odl-openflowplugin-app-topology-manager odl-openflowplugin-app-lldp-speaker
   ```
-  Check Listening Ports
+  3. Check Listening Ports
   ```
   sudo lsof -i -P -n | grep LISTEN
   ```
-  If ```tcp *:6653 (LISTEN)``` and ```tcp *:8181 (LISTEN)``` do not show, shut down OpenDaylight with ```Control+D``` and restart ```sudo ./karaf```
+  NOTE: If ```tcp *:6653 (LISTEN)``` and ```tcp *:8181 (LISTEN)``` do not show, shut down OpenDaylight with ```Control+D``` and restart ```sudo ./karaf```
 
 6. Prepare Mininet
   We build another VM to run Mininet, Memory:4GB, Storage:20GB
@@ -102,24 +103,27 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
   sudo ./dump_flows.sh s1
   ```
 ## Marionette Attack
-Open another terminal on the OpenDaylight VM
-Download marionette_odl-0.20.1.zip
-Unzip it into the home folder.
-```
-cd marionette_odl-0.20.1
-python3.9 main.py
-```
-To efficiently demonstrate Marionette, we give the Marionette an easy goal to run a Reinforcement Learning algorithm to compute an adequate deceptive topology.
-We set the eavesdropping node as node 6 (openflow:7), the expected increased number of eavesdropping flows is 4, and the degree sequence must remain unchanged after altering the topology.
-After the program is finished, we go to the 'figure' folder. There will be three figures.
+1. Open another terminal on the OpenDaylight VM
 
-- topo_original.png: The topology discovered by the ODL controller before being poisoned, which is the real topology.
+2. Download marionette_odl-0.20.1.zip and unzip it into the home folder.
+  ```
+  cd marionette_odl-0.20.1
+  python3.9 main.py
+  ```
+3. Result
+  To efficiently demonstrate Marionette, we give the Marionette an easy goal to run a Reinforcement Learning algorithm to compute an adequate deceptive topology.
 
-- RL_topo.png: The Reinforcement Learning produced deceptive topology.
+  We set the eavesdropping node as node 6 (openflow:7), the expected increased number of eavesdropping flows is 4, and the degree sequence must remain unchanged after altering the topology.
+  
+  After the program is finished, we go to the 'figure' folder. There will be three figures:
 
-- topo_deceptive.png: The topology discovered by the ODL controller after being poisoned by Marionette, which is the deceptive topology.
+  - topo_original.png: The topology discovered by the ODL controller before being poisoned, which is the real topology.
 
-The RL_topo.png should be the same as topo_deceptive.png, which proves the success of precise link manipulation.
+  - RL_topo.png: The Reinforcement Learning produced deceptive topology.
+
+  - topo_deceptive.png: The topology discovered by the ODL controller after being poisoned by Marionette, which is the deceptive topology.
+
+  The RL_topo.png should be the same as topo_deceptive.png, which proves the success of precise link manipulation.
 
 NOTE: 
 
