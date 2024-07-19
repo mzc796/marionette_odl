@@ -26,7 +26,7 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
   python3.9 -m pip install 'stable-baselines3==1.7.0'
   ```
 3. Install and Configure Java
-   1. Install Java
+  1. Install Java
   ```
   sudo apt-get install openjdk-17-jdk
   ```
@@ -67,7 +67,7 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
   export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
   ```
 5. Run OpenDaylight and Install OpenFlow Plugins
-   1. Run OpenDaylight
+  1. Run OpenDaylight
   ```
   sudo ./karaf
   ```
