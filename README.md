@@ -15,8 +15,7 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
 
 NOTE: After installation and reboot, please don't select `Install Now` when the window of `Software Updater` pops up. Otherwise, it may cause an error of 'not enough space' later.
 ## Build and Run OpenDaylight with Mininet
-1. Download marionette_odl.zip
-2. Install Python3.9 and stable-baselines3
+1. Install Python3.9 and stable-baselines3
   ```
   sudo apt-get update
   sudo add-apt-repository ppa:deadsnakes/ppa
@@ -26,7 +25,7 @@ NOTE: After installation and reboot, please don't select `Install Now` when the 
   python3.9 -m pip install networkx matplotlib
   python3.9 -m pip install 'stable-baselines3==1.7.0'
   ```
-3. Install and Configure Java
+2. Install and Configure Java
 > (1) Install Java
   ```
   sudo apt-get install openjdk-17-jdk
@@ -49,7 +48,7 @@ NOTE: After installation and reboot, please don't select `Install Now` when the 
   source /etc/profile/
   java -version
   ```
-4. Install Latest OpenDaylight (Calcium, June 27, 2024)
+3. Install Latest OpenDaylight (Calcium, June 27, 2024)
 > (1) Download OpenDaylight Calcium
   ```
   wget https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/karaf/0.20.1/karaf-0.20.1.zip
@@ -65,7 +64,7 @@ NOTE: After installation and reboot, please don't select `Install Now` when the 
   ```
   export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
   ```
-5. Run OpenDaylight and Install OpenFlow Plugins
+4. Run OpenDaylight and Install OpenFlow Plugins
 > (1) Run OpenDaylight
   ```
   sudo ./karaf
@@ -80,20 +79,20 @@ NOTE: After installation and reboot, please don't select `Install Now` when the 
   ```
   NOTE: If ```tcp *:6653 (LISTEN)``` and ```tcp *:8181 (LISTEN)``` do not show, shut down OpenDaylight with ```Control+D``` and restart ```sudo ./karaf```
 
-6. Prepare Mininet
+5. Prepare Mininet
   We build another VM to run Mininet, Memory:4GB, Storage:20GB
 
-7. Install mininet
+6. Install mininet
   ```
   sudo apt-get update
   sudo apt-get install mininet
   ```
-8. Run Mininet with Customized Topology and Connect with Remote Controller with Ip Address $IP
+7. Run Mininet with Customized Topology and Connect with Remote Controller with Ip Address $IP
   ``` 
   cd Mininet_FatTree
   sudo ./fattree_mn_run.sh $IP
   ```
-9. Check Flow Entries
+8. Check Flow Entries
   ```
   sudo ./dump_flows.sh $sw_id
   ```
@@ -103,8 +102,8 @@ NOTE: After installation and reboot, please don't select `Install Now` when the 
   ```
 ## Marionette Attack
 1. Open another terminal on the OpenDaylight VM
-
-2. Download marionette_odl-0.20.1.zip and unzip it into the home folder.
+2. Download marionette_odl.zip and extract it into the home folder.
+3. Run Marionette
   ```
   cd marionette_odl-0.20.1
   python3.9 main.py
