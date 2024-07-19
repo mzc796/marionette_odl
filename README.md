@@ -77,6 +77,9 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   opendaylight-user@root>feature:install odl-openflowplugin-app-topology-lldp-discovery odl-openflowplugin-app-table-miss-enforcer odl-openflowplugin-flow-services odl-openflowplugin-flow-services-rest odl-openflowplugin-app-topology-manager odl-openflowplugin-app-lldp-speaker
   ```
 > (3) Check Listening Ports
+>
+> Open another terminal
+> 
   ```
   sudo lsof -i -P -n | grep LISTEN
   ```
