@@ -45,7 +45,7 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   ```
 > (4) Make JAVE_HOME valid and Test JAVA Version
   ```
-  source /etc/profile/
+  source /etc/profile
   java -version
   ```
 3. Install Latest OpenDaylight (Calcium, June 27, 2024)
