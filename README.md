@@ -59,7 +59,7 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   ```
 > (2) Configure ODL-0.20.1 Environment
   ```
-  cd karaf-0.20.1\bin
+  cd karaf-0.20.1/bin
   vim setenv
   ```
 > (3) Add the following to the setenv file
