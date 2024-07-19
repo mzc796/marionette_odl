@@ -111,9 +111,9 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
 3. Result
   To efficiently demonstrate Marionette, we give the Marionette an easy goal to run a Reinforcement Learning algorithm to compute an adequate deceptive topology.
 
-  We set the eavesdropping node as node 6 (openflow:7), the expected increased number of eavesdropping flows is 4, and the degree sequence must remain unchanged after altering the topology.
+  >We set the eavesdropping node as node 6 (openflow:7), the expected increased number of eavesdropping flows is 4, and the degree sequence must remain unchanged after altering the topology.
   
-  After the program is finished, we go to the 'figure' folder. There will be three figures:
+  >After the program is finished, we go to the 'figure' folder. There will be three figures:
 
   - topo_original.png: The topology discovered by the ODL controller before being poisoned, which is the real topology.
 
