@@ -53,7 +53,7 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   ```
   wget https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/karaf/0.20.1/karaf-0.20.1.zip
   ```
-  (2) Extract it to the HOME folder
+  (2) Extract it to $HOME
   ```
   unzip karaf-0.20.1.zip
   ```
