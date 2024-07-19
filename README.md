@@ -96,7 +96,7 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   ```
 2. Run Mininet with Customized Topology and Connect to Remote Controller with $IP_ODL
 
-  Download marionette_odl-master.zip and extract it to the HOME folder.
+  Download marionette_odl-master.zip and extract it to $HOME
   ``` 
   cd marionette_odl-master/Mininet_FatTree
   sudo ./fattree_mn_run.sh $IP_ODL
