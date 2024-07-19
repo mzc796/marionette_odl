@@ -102,7 +102,8 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   sudo ./fattree_mn_run.sh $IP_ODL
   ```
   NOTE: The $IP_ODL can be known with the command ```ifconfig``` on OpenDaylight VM.
-4. Check Flow Entries
+  
+4. Utility for Checking Flow Entries 
   ```
   sudo ./dump_flows.sh $sw_id
   ```
