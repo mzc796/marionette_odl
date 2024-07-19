@@ -98,7 +98,7 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
 
   Download marionette_odl-master.zip and extract it to $HOME
   ``` 
-  cd marionette_odl-master/Mininet_FatTree
+  cd marionette_odl-master/mininet_fattree
   sudo ./fattree_mn_run.sh $IP_ODL
   ```
   NOTE: The $IP_ODL can be known with the command ```ifconfig``` on OpenDaylight VM.
