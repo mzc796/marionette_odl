@@ -80,9 +80,10 @@ NOTE: After installation and reboot, please don't select `Install Now` when the 
   NOTE: If ```tcp *:6653 (LISTEN)``` and ```tcp *:8181 (LISTEN)``` do not show, shut down OpenDaylight with ```Control+D``` and restart ```sudo ./karaf```
 
 5. Prepare Mininet
-  We build another VM to run Mininet, Memory:4GB, Storage:20GB
+   
+  We build another VM to run Mininet. The Mininet VM use the ODL VM setting but with Memory:4GB
 
-6. Install mininet
+7. Install mininet
   ```
   sudo apt-get update
   sudo apt-get install mininet
