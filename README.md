@@ -14,7 +14,7 @@ CPU: 2 cores, AMD64 Architecture
 Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
 
 NOTE: After installation and reboot, please don't select `Install Now` when the `Software Updater` window pops up. Otherwise, it may cause an error of `not enough space` later. A high memory is required due to the Reinforcement Learning algorithm.
-## Build and Run OpenDaylight with Mininet
+## Build and Run OpenDaylight VM
 1. Install Python3.9 and stable-baselines3
   ```
   sudo apt-get update
@@ -79,21 +79,22 @@ NOTE: After installation and reboot, please don't select `Install Now` when the 
   ```
   NOTE: If ```tcp *:6653 (LISTEN)``` and ```tcp *:8181 (LISTEN)``` do not show, shut down OpenDaylight with ```Control+D``` and restart ```sudo ./karaf```
 
-5. Prepare Mininet
+## Build and Run Mininet VM
    
   We build another VM to run Mininet. The Mininet VM use the ODL VM setting but with Memory:4GB
 
-7. Install mininet
+1. Install mininet
   ```
   sudo apt-get update
   sudo apt-get install mininet
   ```
-7. Run Mininet with Customized Topology and Connect with Remote Controller with Ip Address $IP
+2. Run Mininet with Customized Topology and Connect to Remote Controller with $IP_ODL
   ``` 
   cd Mininet_FatTree
-  sudo ./fattree_mn_run.sh $IP
+  sudo ./fattree_mn_run.sh $IP_ODL
   ```
-8. Check Flow Entries
+  NOTE: The $IP_ODL can be known with command ```ifconfig``` on OpenDaylight VM.
+3. Check Flow Entries
   ```
   sudo ./dump_flows.sh $sw_id
   ```
