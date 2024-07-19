@@ -49,31 +49,31 @@ Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
   java -version
   ```
 4. Install Latest OpenDaylight (Calcium, June 27, 2024)
-  1. Download OpenDaylight Calcium
+  >1. Download OpenDaylight Calcium
   ```
   wget https://nexus.opendaylight.org/content/repositories/opendaylight.release/org/opendaylight/integration/karaf/0.20.1/karaf-0.20.1.zip
   unzip karaf-0.20.1.zip
   ```
-  2. Configure ODL-0.20.1 Environment
+  >2. Configure ODL-0.20.1 Environment
   ```
   cd karaf-0.20.1\bin
   vim setenv
   ```
-  3. Add the following to the setenv file
+  >3. Add the following to the setenv file
   
   ```
   export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
   ```
 5. Run OpenDaylight and Install OpenFlow Plugins
-  1. Run OpenDaylight
+  >1. Run OpenDaylight
   ```
   sudo ./karaf
   ```
-  2. Install OpenFlow Plugins
+  >2. Install OpenFlow Plugins
   ```
   opendaylight-user@root>feature:install odl-openflowplugin-app-topology-lldp-discovery odl-openflowplugin-app-table-miss-enforcer odl-openflowplugin-flow-services odl-openflowplugin-flow-services-rest odl-openflowplugin-app-topology-manager odl-openflowplugin-app-lldp-speaker
   ```
-  3. Check Listening Ports
+  >3. Check Listening Ports
   ```
   sudo lsof -i -P -n | grep LISTEN
   ```
