@@ -14,6 +14,11 @@ CPU: 2 cores, AMD64 Architecture
 Installation Disc: ubuntu-22.04.4-desktop-amd64.iso
 
 NOTE: After installation and reboot, please DO NOT select `Install Now` when the `Software Updater` window pops up. Otherwise, it may cause an error of `not enough space` later. High memory and storage are required due to the reinforcement learning algorithm.
+## Software Dependencies
+1. OpenDaylight Calcium
+2. Stable-baselines3==1.7.0
+3. Mininet (any version supports OpenFlow v1.3)
+
 ## Build and Run OpenDaylight VM
 1. Install Python3.9 and stable-baselines3
   ```
