@@ -126,7 +126,9 @@ In `main.py`, we set the eavesdropping node as node 6 (openflow:7), the expected
 
 1. Open another terminal on the OpenDaylight VM
 2. Download marionette_odl.zip and extract it to $HOME.
+   
    NOTE: If you download the code from GitHub and the name is ```marionette_odl-master.zip```, please change the folder name to ```marionette_odl``` after extracting it to $HOME.
+   
 3. Run Marionette
   ```
   cd marionette_odl/
