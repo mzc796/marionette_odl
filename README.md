@@ -99,10 +99,13 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   sudo apt-get update
   sudo apt-get install mininet
   ```
-2. Download marionette_odl-master.zip and extract it to $HOME
-3. Run Mininet with Customized Topology and Connect to Remote Controller with $IP_ODL
+2. Download marionette_odl.zip and extract it to $HOME
+   
+   NOTE: If you download the code from GitHub and the name is ```marionette_odl-master.zip```, please change the folder name to ```marionette_odl``` after extracting it to $HOME.
+   
+4. Run Mininet with Customized Topology and Connect to Remote Controller with $IP_ODL
   ``` 
-  cd marionette_odl-master/mininet_fattree
+  cd marionette_odl/mininet_fattree
   sudo chmod 774 fattree_mn_run.sh dump_flows.sh
   sudo ./fattree_mn_run.sh $IP_ODL
   ```
@@ -122,10 +125,11 @@ To efficiently demonstrate Marionette with budgeted time (within 5 minutes) and 
 In `main.py`, we set the eavesdropping node as node 6 (openflow:7), the expected increased number of eavesdropping flows is 4, the similarity lower bound is 80%, and the degree sequence must remain unchanged after altering the topology.
 
 1. Open another terminal on the OpenDaylight VM
-2. Download marionette_odl-master.zip and extract it to $HOME.
+2. Download marionette_odl.zip and extract it to $HOME.
+   NOTE: If you download the code from GitHub and the name is ```marionette_odl-master.zip```, please change the folder name to ```marionette_odl``` after extracting it to $HOME.
 3. Run Marionette
   ```
-  cd marionette_odl-master/
+  cd marionette_odl/
   python3.9 main.py
   ```
 ### Result
