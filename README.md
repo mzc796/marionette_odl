@@ -161,4 +161,5 @@ NOTE: `36` is the total number of switches in this fat tree topology
 
 1. Because the latest version (e.g. at least after the version of 15.3.0) of OpenDaylight removed the user interface project DLUX and we want to show the changes of the topology easily, we use RESTful API to GET topology in real-time and draw the topology with nodes having fixed positions by scripts.
 
-2. The node indices start from 0 in RL_topo.png but start from 1 in topo_deceptive.png. 
+2. The node indices start from 0 in RL_topo.png but start from 1 in topo_deceptive.png.
+3. I recently found some bugs on the OpenDaylight Calcium (karaf-0.20.1.zip). When trying to restart the ODL with the features installed, the restful URLs (the scripts under `bash` folder) encounter 401 errors. That is the bug of OpenDaylight Calcium, not Marionette. Please consider restarting from Step `3` of `Build and Run OpenDaylight VM`.
