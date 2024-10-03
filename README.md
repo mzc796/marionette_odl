@@ -1,6 +1,10 @@
 # Artifact on Zenodo
 https://doi.org/10.5281/zenodo.12786197
 
+# Video Demo
+https://youtu.be/qwHv9tXd-ts
+https://youtu.be/R2dOJO3hB1E
+
 # Part 2: Marionette as an Application on OpenDaylight with Fat Tree Topology
 Marionette attacks OpenDaylight Calcium (karaf-0.20.1.zip) from a malicious application to alter the topology with the goal of making more flows to an eavesdropping point on an enterprise fat tree topology. Step 1: The Marionette collects nodes and topology information to learn a deceptive topology based on an enterprise fat-tree topology to meet the attack goal. Step 2: The Marionette composes and sends corresponding poisonous flow entries to the networking leading the OpenDaylight controller to discover a deceptive topology as designed in Step 1 independently.
 
