@@ -1,3 +1,8 @@
+# Publication
+Manipulating OpenFlow Link Discovery Packet Forwarding for Topology Poisoning (CCS'24)
+
+https://dl.acm.org/doi/abs/10.1145/3658644.3690345
+
 # Artifact on Zenodo
 https://doi.org/10.5281/zenodo.12786197
 
