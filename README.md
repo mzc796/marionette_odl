@@ -123,7 +123,15 @@ NOTE: After installation and reboot, please DO NOT select `Install Now` when the
   sudo ./fattree_mn_run.sh $IP_ODL
   ```
   NOTE: The $IP_ODL can be known with the command ```ifconfig``` on OpenDaylight VM.
-  
+
+  If the connection between ODL and mininet is successful, the mininet terminal shows: 
+  ``
+  *** Creating network
+  *** Adding controller
+  *** Adding hosts:
+  ...
+  ``
+  Otherwise, there will be "Unable to connect the remote controller at $IP_ODL" after "*** Adding controller"
 ### Utility for Checking Flow Entries 
   ```
   sudo ./dump_flows.sh $sw_id
